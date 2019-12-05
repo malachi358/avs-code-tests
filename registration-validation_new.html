@@ -1,0 +1,300 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Registration Validation</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  
+
+  <style type="text/css" media="screen">
+    body {
+      font-family: sans-serif;
+    }
+    .container{
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    #click_button:hover {
+      cursor: pointer;
+    }
+    .error-messages {
+      color: #ff003f;
+      margin: 2px;
+      font-size: 13px;
+    }
+    /*.error-input {
+      border-color: red;
+    }
+    .ok-green-input{
+      border-color: green;
+    }*/
+
+    form {
+      margin: 0 auto;
+      padding: 10px;
+      max-width: 400px;
+      background: #eeeeee;
+    }
+    form h2{
+      text-align: center;
+    }
+
+    form img{
+      text-align: center;
+      width: 60px;
+      margin: 10px auto; 
+      display: block;
+    }
+
+    form input {
+      font-size: 16px;
+      display: inline-block;
+      padding: 8px 15px;
+      width: -webkit-fill-available;
+    }
+
+    .btn-success-playboy-green {
+      background: #4faf48;
+      border-color: #4faf48;
+      border:none!important;
+      border-radius: 8px;
+      padding: .5rem 1rem;
+      width: 100%;
+      color: white;
+      font-size: 1.25rem;
+    }
+    .btn-success-playboy-green:hover, .btn-success-playboy-green:active {
+      background: #308a2a;
+      border:none!important;
+      outline:0px!important;
+    }
+
+    .explanation {
+      max-width: 460px;
+      background: grey;
+      margin: 30px auto;
+      padding: 1rem;
+      background: #eeeeee;
+      border-radius: 5px;
+    }
+    .explanation h3 {
+      margin-top: 0px;
+      border-bottom: 1px solid #a2a2a2;
+      text-align: center;
+      padding-bottom: 10px;
+    }
+
+    .explanation p {
+      font-size: 110%;: 
+    }
+
+  </style>
+
+</head>
+
+<body class="">
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <div class="container" >
+
+    <form name="userRegistration" >
+      <img src="img/playboy-logo-medium.png" alt="">
+      <h2>User Registration</h2>
+
+    <input type="text" placeholder="Username" name="user_name" >
+    <span class="error-messages" id="errorField"></span>
+
+    <br></br>
+
+    <input type="text" placeholder="Password" name="password" >
+    <span  class="error-messages" id="errorPassword"></span>
+
+    <br></br>
+
+    <input type="text" placeholder="Confirm Password" name="confirmPassword" >
+    <span  class="error-messages" id="errorConfirmPassword"></span>
+
+    <br></br>
+
+    <input type="text" placeholder="Email" name="email" >
+    <span  class="error-messages" id="error_email"></span>
+
+    <br></br>
+
+    <input type="text" placeholder="MM/DD/YYYY" name="dob" id="dob" >
+    <span  class="error-messages" id="error_dop"></span>
+
+    <br></br>
+
+    <input class="btn-success-playboy-green" type="button" name="submit"  value="Register"  id="click_button" 
+    onclick="formValidation()">
+
+    <br></br>
+
+    <div id="error">
+    </div>
+
+    </form>
+
+    <div class="explanation">
+
+      <h3>Explanation</h3>
+      <p>If you use the user_name "malachi358", the fake server response I have made will respond saying "User Already Exists".</p>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+function formValidation() {
+    /* ================ USERNAME ================ */
+
+    var reg = /^[a-zA-Z0-9_.-]*$/;
+    var name = document.userRegistration.user_name.value;
+
+    if (name == "") {
+        document.getElementById('errorField').innerHTML = "Please enter a Username!";
+        document.userRegistration.user_name.focus();
+        // document.userRegistration.user_name.classList.add('error-input');
+    } else if (reg.test(name) != true) {
+        document.getElementById('errorField').innerHTML = "Only Characters and Numbers";
+        document.userRegistration.user_name.focus();
+        // document.userRegistration.user_name.classList.add('error-input');
+    } else {
+        document.getElementById('errorField').innerHTML = "OK";
+        document.userRegistration.user_name.classList.add('ok-green-input');
+    }
+
+
+    /* ================ PASSWORD ================ */
+
+    var pattern1 = /[0-9]/;
+    var pattern2 = /[a-z]/;
+    var pattern3 = /[A-Z]/;
+    var pattern4 = /.*[!@#$%^&*() =+_-]/;
+    var pwd = document.userRegistration.password.value;
+    if (pwd == "") {
+        document.getElementById("errorPassword").innerHTML = "Enter your Password!";
+        document.userRegistration.password.focus();
+    } else if (pwd.length < 6) {
+        document.getElementById('errorPassword').innerHTML = "Minimum of 6 characters";
+    } else if (pattern1.test(pwd) != true) {
+        document.getElementById("errorPassword").innerHTML = "Atleast one Number";
+    } else if (pattern2.test(pwd) != true) {
+        document.getElementById("errorPassword").innerHTML = "Atleast one Lowercase";
+    } else if (pattern3.test(pwd) != true) {
+        document.getElementById("errorPassword").innerHTML = "Atleast one Uppercase";
+    } else if (pattern4.test(pwd) != true) {
+        document.getElementById("errorPassword").innerHTML = "Atleast one Special";
+    } else {
+        document.getElementById('errorPassword').innerHTML = "OK";
+    }
+
+
+    /* ================ CONFIRM PASSWORD ================ */
+
+    var cp = document.userRegistration.confirmPassword.value;
+    if (cp == "") {
+        document.getElementById('errorConfirmPassword').innerHTML = "Enter your Password!"
+    } else if (cp !== pwd) {
+        document.getElementById('errorConfirmPassword').innerHTML = "Password does not match!"
+    } else {
+        document.getElementById('errorConfirmPassword').innerHTML = "OK"
+    }
+
+    /* ================ EMAIL ================ */
+
+    var email = document.userRegistration.email.value;
+    var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    if (email == "") {
+        document.getElementById("error_email").innerHTML = "Please your email address!";
+        document.userRegistration.email.focus();
+    } else if (!email.match(mailFormat)) {
+        document.getElementById("error_email").innerHTML = "Please enter the correct format";
+        document.userRegistration.email.focus();
+    } else {
+        document.getElementById("error_email").innerHTML = "OK";
+    }
+
+    /* ================ DATE OF BIRTH ================ */
+
+    var dateFormat = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/;
+    var date = document.userRegistration.dob.value;
+    if (date == "") {
+        document.getElementById("error_dop").innerHTML = "Please enter your Date of Birth";
+        document.userRegistration.email.focus();
+    } else if (!date.match(dateFormat)) {
+        document.getElementById("error_dop").innerHTML = "Enter correct format";
+    } else {
+        document.getElementById("error_dop").innerHTML = "OK"
+    }
+
+
+
+}
+
+  /* ================ FORM SUBMIT ================ */
+    // function submitForm()
+    // {
+    //     var data = document.userRegistration.serialize();
+
+    //     $.ajax({
+
+    //         type : 'POST',
+    //         url  : 'register.php',
+    //         data : data,
+    //         beforeSend: function()
+    //         {
+    //             // $("#error").fadeOut();
+    //             // $("#btn-submit").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; sending ...');
+    //         },
+    //         success :  function(data)
+    //         {
+    //             if(data==1){
+
+    //                 document.getElementById("error").innerHTML = "Sorry Username already taken!";
+
+    //             }
+
+    //             else if(data=="registered")
+    //             {
+
+    //                 // $("#btn-submit").html('Signing Up');
+    //                 // setTimeout('$(".form-signin").fadeOut(500, function(){ $(".signin-form").load("successreg.php"); }); ',5000);
+    //                 window.location = "successreg.php";
+
+
+    //             }
+    //             else{
+
+    //                 // $("#error").fadeIn(1000, function(){
+
+    //                     // $("#error").html('<div class="alert alert-danger"><span class="glyphicon glyphicon-info-sign"></span> &nbsp; '+data+' !</div>');
+
+    //                     document.getElementById("error").innerHTML = data;
+    //                 // });
+
+    //             }
+    //         }
+    //     });
+    //     return false;
+    // }
+    /* form submit */
+
+</script>
+
+
+</body>
+
+</html>

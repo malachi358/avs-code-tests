@@ -1,0 +1,182 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>FAQ Acoordion</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <style type="text/css" media="screen">
+body {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    img {
+      vertical-align: bottom;
+    }
+
+    .clearfix {
+      display: table;
+      clear: both;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 50px 50px;
+      background: #fff;
+      font-family: sans-serif;
+      font-size: 16px;
+      box-shadow: 0 0 5px #b6b6b6;
+    }
+
+    .accordian-menu {
+      border-width: 0px 0 0px;
+      border-style: solid;
+      border: #d9d9d9;
+      box-sizing: border-box;
+      overflow: hidden;
+      margin-block-end: 0;
+      margin-block-start: 0em;
+    }
+    .accordian-menu_head {
+      padding: 30px 0 10px;
+      background: #fff;
+      /* border: 1px solid #b4b4b4; */
+      color: #747474;
+      cursor: pointer;
+      box-sizing: border-box;
+      /* box-shadow: inset 0 2px 5px #00000030; */
+      /* border: 1px solid #e3e3e3; */
+      font-size: 15pt;
+    }
+    .accordian-menu_body {
+      padding: 0 20px;
+      height: 0;
+      border-bottom: 1px solid #f4f4f4;
+      box-sizing: border-box;
+      overflow: hidden;
+      background: white;
+      margin-inline-start: 0;
+      box-shadow: inset 0 2px 5px #00000030;
+      background: #fafafa;
+    }
+    .accordian-menu_body p {
+      margin: 10px 0;
+    }
+
+    .accordian-menu:last-child .accordian-menu_head {
+      border-bottom: none;
+    }
+    
+    h2 {
+      text-align: left;
+      font-size: 36pt;
+      margin: 0;
+      padding: 0;
+      font-weight: 300;
+      margin-bottom: 19px;
+    }
+
+    .accordian-menu_head span{
+      float: right;
+      transition: all .25s ease;
+      transform: rotate(0deg); 
+    }
+
+    .accordian-menu_head.open span{
+      transform: rotate(45deg); 
+    }
+
+  </style>
+
+</head>
+
+<body class="">
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  
+
+  <div class="container">
+    <h2> <img src="img/playboy-logo-medium.png" style="max-width: 50px;" alt=""> FAQ</h2>
+    <div class="acd">
+      <dl class="accordian-menu">
+        <dt class="accordian-menu_head">Does it really work? <span>+</span></dt>
+        <dd class="accordian-menu_body">
+          <p>While every person is different, the answer for more and more men is a resounding YES! After using Playboy Legendary Wellness, the majority of men noticed direct positive results.</p>
+        </dd>
+      </dl>
+      <dl class="accordian-menu">
+        <dt class="accordian-menu_head">What’s in it? How is it made? <span>+</span></dt>
+        <dd class="accordian-menu_body">
+          <p>Legendary Wellness is comprised of a proprietary blend of natural vitamins, minerals and amino acids. We tirelessly crafted our ingredients from some of the most potent places on earth. </p>
+        </dd>
+      </dl>
+      <dl class="accordian-menu">
+        <dt class="accordian-menu_head">How do I take it and how often? <span>+</span></dt>
+        <dd class="accordian-menu_body">
+          <p>Take one capsule a day as part of your daily regimen. Legendary Wellness works to delivery results that intensify over time. The longer and more regularly you take it, the stronger and longer lasting your results will be.</p>
+        </dd>
+      </dl>
+
+      <dl class="accordian-menu">
+        <dt class="accordian-menu_head">How do I take it and how often? <span>+</span></dt>
+        <dd class="accordian-menu_body">
+          <p>Take one capsule a day as part of your daily regimen. Legendary Wellness works to delivery results that intensify over time. The longer and more regularly you take it, the stronger and longer lasting your results will be.</p>
+        </dd>
+      </dl>
+    </div>
+    </div>
+
+
+  <script type="text/javascript">
+    (function() {
+      'use strict';
+      
+      var acdHeads;
+    
+      acdHeads = document.querySelectorAll('.accordian-menu_head');
+      
+      for (var i = 0; i < acdHeads.length; i++) {
+        acdHeads[i].addEventListener('click', function() {
+          
+          var acdBody;
+
+          this.classList.add('open');
+        
+          // <div class="accordian-menu_body"></div>
+          acdBody = this.nextElementSibling;
+          acdBody.style.transition = 'height 0.2s ease-out';
+
+          
+          if (acdBody.style.height) {
+            acdBody.style.height = null;
+            this.classList.remove('open');
+          } else {
+            // scrollHeight
+            acdBody.style.height = acdBody.scrollHeight + 'px';
+            // this.classList.remove('test');
+          }
+        });
+      }
+    }());
+  </script>
+
+
+</body>
+
+</html>

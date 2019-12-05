@@ -1,0 +1,95 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>JS-Closure</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <meta name="theme-color" content="#fafafa">
+
+  <style type="text/css" media="screen">
+    body {
+      font-weight: 300;
+      font-family: sans-serif;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 200;
+      font-family: sans-serif;
+    }
+
+    h1 {
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      font-size: 1.8em;
+    }
+
+    b, strong {
+      font-weight: 400;
+    }
+
+    html {
+      background-color: #eee;
+    }
+
+    body {
+      margin: 0 auto;
+      color: #323232;
+      max-width: 38em;
+      line-height: 1.5;
+      padding: 1em 3em;
+      background-color: #fff;
+    }
+
+    pre {
+      padding: 1em;
+      color: #bada55;
+      display: block;
+      border-radius: 0.3em;
+      background-color: #000;
+    }
+    pre code {
+      color: #bada55;
+      background-color: #000;
+    }
+
+    code {
+      background-color: #eee;
+    }
+
+
+  </style>
+
+</head>
+
+<body>
+  <!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <div class="container">
+    <h1>Javascript Closure Example</h1>
+    <p>This example shows how you can create a closure. The <code>add</code> function provides the closure and it returns the <code>addToNum1</code> function. The <code>add5</code> variable then calls the <code>add</code> function passing in the argument <code>5</code>. Finally calling the <code>add5</code> function and passing in the argument <code>2</code> will return <code>7</code>.</p>
+    <pre><code>var add = function(num) {
+        var num1 = num; //stays at 5
+        
+        var addToNum1 = function(num2) {
+            return num1 + num2;
+        }
+        return addToNum1;
+    };
+
+    var add5 = add(5);
+    add5(2); // 7
+    add5(3); // 8
+    </code></pre>
+  </div>
+
+</html>
