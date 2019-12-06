@@ -481,8 +481,6 @@ textarea {
     border-radius: 0;
 }
 
-
-
 .btn-success-playboy-green-block {
     width: 100%;
     border-radius: 0;
@@ -800,6 +798,41 @@ border-radius: 0;
   .box-bottle-moibile {
     display: block;
   }
+  .align-right-fix {
+    text-align: center;
+  }
+  .single-prod-top-nav {
+    text-align: center;
+  }
+  .single-prod-top-nav .btn-success-playboy-green {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .product-highlight-icons div div:nth-child(1) {
+    text-align: center;
+    padding-left: 0;
+  }
+  .product-highlight-icons div div{
+    text-align: center;
+    padding: 20px;
+  }
+  .product-highlight-icons div div img {
+    /*display: block;*/
+    width: 35px;
+  }
+  .single-product-intro-top {
+    text-align: center;
+  }
+  .product-image-container-mobile {
+
+  }
+  .product-image-container-mobile img, .box-bottle-moibile{
+    max-width: 100%;
+  }
+  .single-prod-bottom-details h2 {
+
+  }
+
 
 }
 
@@ -822,6 +855,8 @@ border-radius: 0;
     /* margin-right: 30px; */
     padding-top: 25px;
   }
+
+
 }
 
 
